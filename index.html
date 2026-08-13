@@ -24,6 +24,27 @@
   .wrap{max-width:1080px;margin:0 auto;padding:40px 24px;}
   h1{font-size:32px;font-weight:800;margin-bottom:8px;}
   .meta{font-size:13px;color:var(--text-faint);margin-bottom:28px;}
+
+  .trend-section{margin-bottom:32px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;}
+  .trend-title{font-size:16px;font-weight:700;margin-bottom:16px;}
+  .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:900px){.trend-grid{grid-template-columns:1fr;}}
+  .trend-card-title{font-size:12.5px;color:var(--text-faint);margin-bottom:10px;}
+  .ratio-bar{display:flex;width:100%;height:10px;border-radius:6px;overflow:hidden;background:var(--surface-2);margin-bottom:10px;}
+  .ratio-fill.b{background:var(--broadcast);}
+  .ratio-fill.o{background:var(--ott);}
+  .ratio-legend{display:flex;gap:14px;font-size:11.5px;color:var(--text-dim);flex-wrap:wrap;}
+  .ratio-legend .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+  .ratio-legend .dot.b{background:var(--broadcast);}
+  .ratio-legend .dot.o{background:var(--ott);}
+  .stat-list{display:flex;flex-direction:column;gap:8px;}
+  .stat-row{display:flex;align-items:center;gap:8px;}
+  .stat-label{font-size:12px;color:var(--text-dim);min-width:56px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .stat-bar-track{flex:1;height:8px;border-radius:5px;background:var(--surface-2);overflow:hidden;}
+  .stat-bar-fill{height:100%;background:var(--gold);border-radius:5px;}
+  .stat-bar-fill.genre{background:var(--ott);}
+  .stat-count{font-size:11px;color:var(--text-faint);min-width:18px;text-align:right;}
+
   .filters{display:flex;gap:8px;margin-bottom:20px;}
   .pill{font-size:12px;padding:7px 14px;border-radius:20px;border:1px solid var(--line);background:var(--surface);color:var(--text-dim);cursor:pointer;}
   .pill.active{background:var(--text);color:var(--bg);border-color:var(--text);}
@@ -211,7 +232,112 @@
   </span></div></div>
 <div class="wrap">
   <h1>드라마 레이더</h1>
-  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-13 19:30</div>
+  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-13 19:46</div>
+  
+  <div class="trend-section">
+    <h2 class="trend-title">트렌드 분석</h2>
+    <div class="trend-grid">
+      <div class="trend-card">
+        <div class="trend-card-title">방송사 · OTT 비율</div>
+        <div class="ratio-bar">
+          <div class="ratio-fill b" style="width:100%"></div>
+          <div class="ratio-fill o" style="width:0%"></div>
+        </div>
+        <div class="ratio-legend">
+          <span><span class="dot b"></span>방송사 15편 (100%)</span>
+          <span><span class="dot o"></span>OTT 0편 (0%)</span>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-card-title">방송사/OTT별 작품 수</div>
+        <div class="stat-list">
+  <div class="stat-row">
+    <span class="stat-label">Netflix</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:100%"></div></div>
+    <span class="stat-count">4</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">tvN</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:75%"></div></div>
+    <span class="stat-count">3</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">KBS2</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:50%"></div></div>
+    <span class="stat-count">2</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">SBS</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">ENA</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">MBC</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">Wavve</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">JTBC</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">쿠팡플레이</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div></div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-card-title">장르 분포</div>
+        <div class="stat-list">
+    <div class="stat-row">
+      <span class="stat-label">드라마</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:100%"></div></div>
+      <span class="stat-count">14</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">코미디</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:50%"></div></div>
+      <span class="stat-count">7</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">범죄</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:43%"></div></div>
+      <span class="stat-count">6</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">미스터리</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:36%"></div></div>
+      <span class="stat-count">5</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">액션·모험</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:21%"></div></div>
+      <span class="stat-count">3</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">SF·판타지</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:14%"></div></div>
+      <span class="stat-count">2</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">가족</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:7%"></div></div>
+      <span class="stat-count">1</span>
+    </div></div>
+      </div>
+    </div>
+  </div>
   <div class="filters">
     <button class="pill active" data-f="all">전체</button>
     <button class="pill" data-f="b">방송사</button>
@@ -228,7 +354,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">코미디</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 (8화 수록)</span>
@@ -241,9 +367,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-취재 중 사고로 기억을 잃은 채 깨어난 고은새 앞에 낯선 남자가 자신이 애인이라고 나타난다. 과연 그를 믿어도 될까, 혼란스러운 상황 속 진실은 무엇일까.</div>
+            <div class="ep-summary">사건 취재 중 사고를 당해 기억을 잃은 채 깨어난 고은새. 병실을 찾아온 낡은 추리닝 차림의 남자가 자신의 남자친구라고 주장하며 그녀를 당혹케 한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -251,9 +375,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-은새가 발견한 마을의 정체에 의문을 품기 시작한다. 주민들부터 마을 전체까지 무언가 숨겨진 비밀이 있는 듯하며, 특히 태하의 수상한 태도가 그의 호기심을 자극한다.</div>
+            <div class="ep-summary">은새가 발을 들인 마을의 정체에 의문을 품기 시작한다. 주민들부터 태하까지 모든 것이 의심스러운 가운데, 은새는 태하에 대한 진실을 파헤치기로 결심한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -261,9 +383,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 예고
 
-태하와 은새가 잃어버린 기억을 되찾기 위해 동네 곳곳을 함께 돌아다니며 소중한 시간을 보낸다. 하지만 은새 주변에서 일어난 사건들이 속속 드러나면서 조직 보스 백상길의 관심이 집중되기 시작한다.</div>
+태하와 은새는 잃어버린 기억을 되찾기 위해 함께 동네를 돌아다니며 소중한 시간을 보낸다. 그러나 은새의 정체가 조직의 보스에게 알려지면서 두 사람 앞에 예측 불가능한 위기가 닥친다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -271,9 +393,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-진실을 찾아 서울로 떠난 은새가 자신의 과거와 맞닥뜨린다. 예상과 달리 드러나는 진실과 태하의 숨겨진 사연은 그녀의 마음을 더욱 흔들어 놓는다.</div>
+            <div class="ep-summary">진실을 향해 서울로 떠난 은새가 자신의 숨겨진 과거와 마주하게 된다. 태하의 비극적인 사연까지 드러나면서 그녀의 마음은 더욱 흔들린다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -281,7 +401,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">은새와 태하의 로맨스가 무르익어가지만, 태하의 과거 인연들이 계속해서 둘 사이에 균열을 만든다. 은새는 자신의 남자를 지키기 위해 직설적인 조언으로 맞서는데, 과연 이들의 관계는 어떻게 될까.</div>
+            <div class="ep-summary"># 드라마 예고
+
+매일 가까워지는 은새와 태하의 관계에 균열이 생긴다. 중요한 순간마다 태하의 과거가 불쑥 나타나면서 둘 사이의 신뢰가 흔들리고, 은새는 결연한 의지로 상황에 맞선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -291,7 +413,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-작은 오해에서 비롯된 루머가 순식간에 마을 전역을 휩쓸면서 상황이 걷잡을 수 없이 악화된다. 은새는 자신을 바라보는 태하의 진심이 무엇인지 직접 묻기로 결심한다.</div>
+작은 오해가 눈덩이처럼 불어나 마을 전체를 휩싸는 루머가 되어버린다. 엿마을의 세 여인이 진화에 나서지만 상황은 더욱 복잡해지고, 은새는 결국 태하에게 자신을 향한 진정한 마음이 무엇인지 확인하려 한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -299,9 +421,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 예고 기사 톤
 
-은새의 갑작스러운 실종으로 엿마을이 발칵 뒤집힌다. 한밤중 안기준이 태하를 찾아와 은새의 과거를 놓고 심문하면서 긴장감이 고조된다.</div>
+은새의 갑작스러운 실종으로 엿마을 주민들이 수소문에 나선다. 한편 은새의 담당 의사 안기준이 한밤중 태하를 찾아와 은새의 과거에 대해 의문을 제기하며 긴장감이 높아진다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -309,9 +431,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 다음 회 예고
 
-기억을 되찾은 은새가 상길을 향해 본격적인 복수에 나선다. 그러나 은새의 행동으로 태하와 엿마을 주민들까지 예상치 못한 위기에 직면하게 된다.</div>
+기억을 되찾은 은새가 상길을 향해 본격적인 추적에 나선다. 하지만 이 과정에서 태하와 엿마을 사람들까지 예기치 못한 위험에 처하게 된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -348,7 +470,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">액션·모험</span><span class="tag">범죄</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -369,7 +491,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">코미디</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -390,7 +512,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">코미디</span><span class="tag">SF·판타지</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -411,7 +533,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">코미디</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -432,7 +554,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">범죄</span><span class="tag">드라마</span><span class="tag">미스터리</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -453,7 +575,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">액션·모험</span><span class="tag">미스터리</span><span class="tag">범죄</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -474,7 +596,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">미스터리</span><span class="tag">범죄</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -495,7 +617,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">코미디</span><span class="tag">범죄</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -516,7 +638,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">미스터리</span><span class="tag">액션·모험</span><span class="tag">SF·판타지</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -537,7 +659,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">미스터리</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -558,7 +680,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">코미디</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -579,7 +701,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">범죄</span><span class="tag">코미디</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -600,7 +722,7 @@
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
       <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="tags"><span class="tag">가족</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
