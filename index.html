@@ -7,10 +7,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 <style>
   :root{
-    --bg:#12141B; --surface:#1A1D27; --surface-2:#20242F; --line:rgba(255,255,255,0.08);
-    --text:#EDEEF3; --text-dim:#8D94A8; --text-faint:#5C6278;
-    --broadcast:#FF4757; --broadcast-dim:rgba(255,71,87,0.14);
-    --ott:#3FE0C4; --ott-dim:rgba(63,224,196,0.14); --gold:#F2B84B; --gold-dim:rgba(242,184,75,0.14);
+    --bg:#F4F6FB; --surface:#FFFFFF; --surface-2:#EDF1F8; --line:rgba(15,23,42,0.08);
+    --text:#1B2540; --text-dim:#5B6B85; --text-faint:#8D98AC;
+    --broadcast:#2C5FAD; --broadcast-dim:rgba(44,95,173,0.10);
+    --ott:#0E8FA8; --ott-dim:rgba(14,143,168,0.10); --gold:#B8860B; --gold-dim:rgba(184,134,11,0.10);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:var(--bg);color:var(--text);font-family:'Pretendard Variable',-apple-system,sans-serif;line-height:1.5;}
@@ -24,6 +24,27 @@
   .wrap{max-width:1080px;margin:0 auto;padding:40px 24px;}
   h1{font-size:32px;font-weight:800;margin-bottom:8px;}
   .meta{font-size:13px;color:var(--text-faint);margin-bottom:28px;}
+
+  .trend-section{margin-bottom:32px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;}
+  .trend-title{font-size:16px;font-weight:700;margin-bottom:16px;}
+  .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:900px){.trend-grid{grid-template-columns:1fr;}}
+  .trend-card-title{font-size:12.5px;color:var(--text-faint);margin-bottom:10px;}
+  .ratio-bar{display:flex;width:100%;height:10px;border-radius:6px;overflow:hidden;background:var(--surface-2);margin-bottom:10px;}
+  .ratio-fill.b{background:var(--broadcast);}
+  .ratio-fill.o{background:var(--ott);}
+  .ratio-legend{display:flex;gap:14px;font-size:11.5px;color:var(--text-dim);flex-wrap:wrap;}
+  .ratio-legend .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+  .ratio-legend .dot.b{background:var(--broadcast);}
+  .ratio-legend .dot.o{background:var(--ott);}
+  .stat-list{display:flex;flex-direction:column;gap:8px;}
+  .stat-row{display:flex;align-items:center;gap:8px;}
+  .stat-label{font-size:12px;color:var(--text-dim);min-width:56px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .stat-bar-track{flex:1;height:8px;border-radius:5px;background:var(--surface-2);overflow:hidden;}
+  .stat-bar-fill{height:100%;background:var(--gold);border-radius:5px;}
+  .stat-bar-fill.genre{background:var(--ott);}
+  .stat-count{font-size:11px;color:var(--text-faint);min-width:18px;text-align:right;}
+
   .filters{display:flex;gap:8px;margin-bottom:20px;}
   .pill{font-size:12px;padding:7px 14px;border-radius:20px;border:1px solid var(--line);background:var(--surface);color:var(--text-dim);cursor:pointer;}
   .pill.active{background:var(--text);color:var(--bg);border-color:var(--text);}
@@ -211,7 +232,112 @@
   </span></div></div>
 <div class="wrap">
   <h1>드라마 레이더</h1>
-  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-13 23:01</div>
+  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-14 00:17</div>
+  
+  <div class="trend-section">
+    <h2 class="trend-title">트렌드 분석</h2>
+    <div class="trend-grid">
+      <div class="trend-card">
+        <div class="trend-card-title">방송사 · OTT 비율</div>
+        <div class="ratio-bar">
+          <div class="ratio-fill b" style="width:100%"></div>
+          <div class="ratio-fill o" style="width:0%"></div>
+        </div>
+        <div class="ratio-legend">
+          <span><span class="dot b"></span>방송사 15편 (100%)</span>
+          <span><span class="dot o"></span>OTT 0편 (0%)</span>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-card-title">방송사/OTT별 작품 수</div>
+        <div class="stat-list">
+  <div class="stat-row">
+    <span class="stat-label">Netflix</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:100%"></div></div>
+    <span class="stat-count">4</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">tvN</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:75%"></div></div>
+    <span class="stat-count">3</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">KBS2</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:50%"></div></div>
+    <span class="stat-count">2</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">SBS</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">ENA</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">MBC</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">Wavve</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">JTBC</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">쿠팡플레이</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill" style="width:25%"></div></div>
+    <span class="stat-count">1</span>
+  </div></div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-card-title">장르 분포</div>
+        <div class="stat-list">
+    <div class="stat-row">
+      <span class="stat-label">드라마</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:100%"></div></div>
+      <span class="stat-count">15</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">코미디</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:53%"></div></div>
+      <span class="stat-count">8</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">범죄</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:40%"></div></div>
+      <span class="stat-count">6</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">미스터리</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:33%"></div></div>
+      <span class="stat-count">5</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">액션·모험</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:20%"></div></div>
+      <span class="stat-count">3</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">SF·판타지</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:13%"></div></div>
+      <span class="stat-count">2</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">가족</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill genre" style="width:7%"></div></div>
+      <span class="stat-count">1</span>
+    </div></div>
+      </div>
+    </div>
+  </div>
   <div class="filters">
     <button class="pill active" data-f="all">전체</button>
     <button class="pill" data-f="b">방송사</button>
@@ -227,8 +353,8 @@
         <span class="badge b">방송사 · Netflix</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">코미디</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 (8화 수록)</span>
@@ -241,9 +367,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고 기사
+            <div class="ep-summary"># 드라마 예고
 
-사건 추적 중 사고를 당한 고은새가 기억을 잃은 채 병원에서 깨어난다. 눈앞에 나타난 수상한 남자가 자신의 남자친구라고 주장하면서 예상 밖의 상황이 펼쳐진다.</div>
+취재 중 사고로 기억을 잃은 고은새가 깨어나자, 정체불명의 남자가 자신의 남친이라며 나타난다. 과연 그의 정체는 무엇일까?</div>
           </div>
         </div>
         <div class="ep-item">
@@ -251,9 +377,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 예고
 
-의문의 마을에 발을 딛게 된 은새가 주민들의 수상한 행동과 태하의 정체에 대한 의구심을 품기 시작한다. 은새는 태하를 조심스레 탐색하며 숨겨진 진실을 파헤치기 위한 움직임을 시작한다.</div>
+은새가 도착한 마을의 정체가 점차 드러나면서 의문의 연속이 이어진다. 주민들과 태하의 수상한 정체를 의심하기 시작한 은새는 본격적으로 진실을 캐기 위해 움직인다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -261,7 +387,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">태하와 은새는 잃어버린 기억을 되찾기 위해 동네 곳곳을 함께 누비며 소중한 시간을 보낸다. 그러나 은새의 정체가 조금씩 드러나면서 조직의 보스 백상길이 이 사실을 알아차리기 시작한다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+태하와 은새는 잃어버린 기억을 되찾기 위해 동네 곳곳을 함께 다니며 소박한 시간을 보낸다. 그러던 중 은새의 과거가 조직의 보스 백상길에게 하나둘 알려지면서 상황이 복잡해진다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -269,7 +397,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">은새가 서울에서 마주한 것은 자신의 숨겨진 과거와 태하의 슬픈 사연이었다. 진실 앞에서 흔들리는 두 사람의 운명이 어떻게 얽혀갈지 주목된다.</div>
+            <div class="ep-summary">은새가 서울에서 마주한 것은 자신의 숨겨진 과거와 태하를 둘러싼 아픈 진실들이다. 점점 더 복잡해지는 두 사람의 얽힌 사연이 드러난다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -277,9 +405,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 드라마 회차 예고
 
-은새와 태하의 로맨스가 무르익어가는 가운데, 태하의 과거 인연들이 계속 나타나 둘의 감정에 금을 그으려 한다. 은새는 자신의 남자를 지키려는 결연한 의지로 직설적인 조언을 서슴지 않는다.</div>
+은새와 태하의 관계가 날로 깊어지지만, 태하의 과거 인연들이 계속 나타나 두 사람 사이를 방해한다. 은새는 자신의 남자를 지키겠다는 결연한 마음으로 과감한 행동에 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -287,9 +415,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-작은 오해가 걷잡을 수 없는 루머로 번져 마을 전체를 뒤흔든다. 상황 수습에 나선 세 여인의 노력도 헛수고로 돌아가는 가운데, 은새는 태하에게 자신을 향한 진정한 마음이 무엇인지 직접 묻게 된다.</div>
+            <div class="ep-summary">작은 오해가 눈덩이처럼 불어나 마을 전체를 휩싸는 루머가 되고, 이를 바로잡으려던 세 여인의 노력이 상황을 더욱 악화시킨다. 혼란 속에서 은새는 태하의 진심을 직접 묻게 된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -297,9 +423,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 회차 예고
+            <div class="ep-summary"># 예고
 
-은새의 갑작스러운 실종으로 엿마을이 온통 소란에 빠진다. 한편 은새의 주치의였던 안기준이 한밤중 태하를 찾아와 은새의 과거에 대해 의심스러운 질문을 던지며 긴장감이 고조된다.</div>
+은새의 갑작스러운 실종으로 엿마을이 발칵 뒤집힌다. 한편 은새의 주치의 안기준이 밤중에 태하를 찾아와 은새의 과거를 둘러싼 의문을 제기하며 긴장감을 고조시킨다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -307,9 +433,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-기억을 회복한 은새가 상길을 향해 본격적인 행동을 개시한다. 그러나 은새의 복수 과정에서 태하와 엿마을 주민들까지 예상치 못한 위협에 노출되면서 사건이 복잡해진다.</div>
+            <div class="ep-summary">기억을 되찾은 은새가 상길을 추적하기 시작하면서 긴장이 고조된다. 은새의 행동으로 인해 태하와 엿마을 주민들까지 예상치 못한 위험에 노출되는 상황이 전개된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -340,7 +464,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-교권보호국 감독관 나화진이 학폭으로 병들어가는 학교에 단독으로 투입된다. 존중과 진정한 교육이 무엇인지 보여주기 위한 그의 치열한 분투가 시작된다.</div>
+교권보호국 감독관이 학교 폭력의 악순환에 맞서 참된 교육의 의미를 되찾기 위해 나선다. 권력에 기댄 가해 학생들의 횡포가 만연한 학교에서 교육 현장의 정상화를 위한 결연한 투쟁이 펼쳐진다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -350,7 +474,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 예고
 
-어수룩한 전학생 봉근이 폭력배들이 장악한 학교에 발을 들인다. 특전사 출신의 화진은 뛰어난 실력으로 학교를 수호하며 순수한 학생을 보호하기로 결심한다.</div>
+순진한 봉근이 폭력 조직에 장악된 학교에 입학하면서 예상치 못한 일들이 벌어진다. 특전사 출신의 화진이 학교의 질서를 되찾고 공부에만 몰두하려는 학생을 보호하기 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -358,9 +482,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 교권 분쟁의 현장에 투입된 감독관의 활약
+            <div class="ep-summary"># 드라마 예고
 
-예측 불가능한 성격의 교권보호국 감독관 임한림이 학교에서 벌어진 명예훼손 사건에 나선다. 여고생 인플루언서가 교사들을 향해 거짓 정보를 확산시키자, 진실 규명을 위해 한림의 강단 있는 활동이 시작된다.</div>
+교권 침해 사건에 투입된 감독관 임한림이 학생 인플루언서가 퍼뜨린 거짓 정보에 맞서 진실을 밝혀내기 위해 움직인다. 예측 불가능한 그의 행동이 학교에 불을 지핀다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -368,9 +492,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 드라마 회차 예고
 
-최강석 장관이 교권보호국을 향한 정치적 공격에 맞서며 입장을 견지한다. 한편 화진 팀은 존경받던 교사의 피해 사건이 발생한 명문고를 찾아 사건의 진실을 규명하기에 나선다.</div>
+최강석 장관이 교권보호국을 향한 정치적 압박에 맞서며 입장을 고수한다. 한편 화진 팀은 명문고에서 발생한 교사 폭행 사건의 진실을 파헤치기 위해 현장 조사에 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -378,7 +502,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">도박 중독에 빠진 아들의 행방을 쫓는 아버지를 돕기 위해 근대가 위험한 내잠입 작전에 나선다. 한편 황기태는 교권보호국을 붕괴시킬 절호의 기회를 노려 소년원 수감자와의 만남을 추진한다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+근대가 도박 중독에 빠진 아들을 찾는 아버지를 돕기 위해 위험한 작전에 나선다. 동시에 황기태는 교권보호국을 무너뜨릴 수 있는 기회를 엿보며 소년원 수감자와의 만남을 추진한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -386,9 +512,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 다음 회 예고
+            <div class="ep-summary"># 드라마 예고
 
-의대 진학을 준비하던 학생의 갑작스러운 쓰러짐 사건으로 수사에 나선 화진은, 과도한 교육열에 휩싼 학부모의 불법 약물 구매 배경에 숨겨진 더욱 거대한 사건의 실체를 마주하게 된다.</div>
+의대 입시를 준비하던 학생의 갑작스러운 쓰러짐 사건으로 수사에 나선 화진은, 과도한 교육 욕심에 불법 약물을 구한 모친의 뒤에 놓인 거대한 그림자를 마주한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -396,7 +522,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">가짜 친구들의 착취 수법을 적발하기 위해 한림이 직접 그들의 집단에 잠입한다. 한편 출소한 조규철의 복귀로 교권국의 존립이 위태로워진다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+한림이 피해자를 착취하는 사기단에 잠입 작전을 펼치는 한편, 가석방으로 복귀한 조규철의 등장이 교권국을 흔들어 놓는다. 정의와 복수가 얽힌 긴장의 순간이 펼쳐진다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -411,8 +539,8 @@
         <span class="badge b">방송사 · SBS</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">액션·모험</span><span class="tag">범죄</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -432,8 +560,8 @@
         <span class="badge b">방송사 · ENA</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">코미디</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -453,8 +581,8 @@
         <span class="badge b">방송사 · tvN</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">코미디</span><span class="tag">SF·판타지</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -474,8 +602,8 @@
         <span class="badge b">방송사 · tvN</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">코미디</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -495,8 +623,8 @@
         <span class="badge b">방송사 · KBS2</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">범죄</span><span class="tag">드라마</span><span class="tag">미스터리</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -516,8 +644,8 @@
         <span class="badge b">방송사 · MBC</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">액션·모험</span><span class="tag">미스터리</span><span class="tag">범죄</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -537,8 +665,8 @@
         <span class="badge b">방송사 · Wavve</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">미스터리</span><span class="tag">범죄</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -558,8 +686,8 @@
         <span class="badge b">방송사 · JTBC</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">드라마</span><span class="tag">코미디</span><span class="tag">범죄</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -579,8 +707,8 @@
         <span class="badge b">방송사 · Netflix</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">미스터리</span><span class="tag">액션·모험</span><span class="tag">SF·판타지</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 (8화 수록)</span>
@@ -593,9 +721,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
-
-동궁에서 원인 모를 죽음들이 발생하자, 왕은 초자연적 현상의 원인을 규명하기 위해 귀신을 볼 수 있는 구천과 귀신의 목소리를 들을 수 있는 궁녀 생강을 궁에 소환한다.</div>
+            <div class="ep-summary">동궁에서 일어나는 연쇄 사망 사건의 원인을 규명하기 위해 왕이 특별한 능력을 가진 두 인물을 궁으로 소환한다. 귀신을 직접 보는 구천과 그들의 목소리를 듣는 궁녀 생강이 미스터리 해결에 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -603,7 +729,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">연못 귀신과의 위험한 대면에서 살아난 구천이 궁의 미해결 과제를 해결하기 위해 생강과 손을 맞잡는다. 이후 두 사람은 소금광 귀신의 정체를 둘러싼 놀라운 진실에 마주하게 된다.</div>
+            <div class="ep-summary"># 예고
+
+죽음의 위기에서 벗어난 구천이 궁의 미해결 사건들을 처리하기 위해 생강과 손을 맞잡는다. 그들 앞에 소금광 귀신의 숨겨진 진실이 드러나기 시작한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -611,9 +739,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 예고
 
-왕의 극단적 협박으로 궁지에 몰린 구천은 영안군을 구하기 위해 위험한 결단을 내린다. 귀의 세계로 향한 구천을 기다리는 것은 그곳의 수호자인 별감 귀신과의 운명적 대면이다.</div>
+왕의 엄중한 협박 속에 영안군을 구하기 위한 구천의 위험한 결단이 시작된다. 궁을 벗어나 귀의 세계로 발을 디딘 그가 마주하게 될 초자연적 존재와의 운명적 만남이 펼쳐진다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -621,9 +749,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-구천과 생강이 연못의 저주를 종식시키기 위해 결연한 의지를 모은다. 궁을 탈출한 구천이 연이은 세자 사망 사건의 의혹을 품고 생강을 향해 나선다.</div>
+구천과 생강이 연못의 악령을 퇴치하기 위해 최후의 결전에 나선다. 궁을 빠져나간 구천이 잇따른 세자 사망 사건의 진실을 파헤치기 위해 생강을 추적한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -631,9 +759,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-왕의 추격을 받던 구천은 생강의 도움으로 위기를 벗어나지만, 왕의 갑작스러운 병세로 상황이 급변한다. 악귀와의 대결을 앞두고 있던 구천 앞에 정체불명의 세력이 몸주신을 소환하며 예상 밖의 방해를 일으킨다.</div>
+            <div class="ep-summary">왕의 추격을 피한 구천이 예상치 못한 방해세력과 맞닥뜨린다. 왕의 급변한 상황 속에서 구천의 운명을 좌우할 새로운 변수가 등장한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -641,9 +767,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-구천의 목숨을 건 결투 속에서 생강은 초자연적 위협에 맞닥뜨린다. 사건의 진실에 근접하지만 구천의 신체 위기가 그들의 작전을 흔들리게 한다.</div>
+            <div class="ep-summary">구천과 생강이 위험한 상황 속에서 사건의 진실에 접근하지만, 예기치 않은 위기가 그들의 작전을 흔들어 놓는다. 극한의 시련 속에서 두 사람은 과연 목표를 이룰 수 있을까.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -651,7 +775,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">왕실을 휩싼 연쇄적 불행의 원인을 놓고 왕과 대비의 갈등이 심화되는 가운데, 원념을 품은 영혼들이 궁궐로 집결한다. 구천과 생강은 최종 대결을 앞두고 결연한 각오를 다진다.</div>
+            <div class="ep-summary">왕실의 비극 원인을 놓고 벌어지는 대립 속에 원혼들이 궁궐로 집결하면서 상황이 급박해진다. 구천과 생강이 최후의 전투를 앞두고 결연한 의지를 다진다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -659,9 +783,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-생강과 구천이 운명을 건 결전을 앞두고 있다. 원귀의 힘이 궁 전체를 장악하려는 위기 속에서 두 사람이 마지막 희망이 될 수 있을지 주목된다.</div>
+생강과 구천이 원귀의 위협 속에서 운명을 걸고 맞서게 된다. 궁을 집어삼키려는 원귀의 힘이 점점 커지는 가운데, 둘의 결단이 모든 것을 바꿀 수 있을지 주목된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -676,8 +800,8 @@
         <span class="badge b">방송사 · Netflix</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">미스터리</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 (6화 수록)</span>
@@ -692,7 +816,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-문학 교수 허문오가 자신의 수업을 듣는 학생 이강의 글에서 남다른 재능을 발견하고 개인 지도를 제안한다. 하지만 이강의 반응은 예상과 달리 의외의 방향으로 흘러간다.</div>
+문학 교수 허문오가 수강생 이강의 숨겨진 글 재능을 발견하고 개별 지도를 제안한다. 하지만 이강의 예상 밖의 반응이 두 사람 사이에 긴장을 만든다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -700,7 +824,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">이강이 같은 반 친구를 주인공으로 한 글쓰기에 착수하면서 문오의 의심이 커진다. 예상치 못한 사건이 터지면서 충격적인 진실이 수면 위로 떠오른다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+이강이 같은 반 친구를 주제로 한 글쓰기에 몰두하는 가운데, 문오는 그의 진정한 의도에 의문을 품는다. 이후 예상치 못한 사건을 통해 충격적인 진실이 수면 위로 떠오른다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -708,7 +834,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">세윤의 아버지에 대한 의혹이 커지면서 문오는 사건의 진실에 더욱 집착하게 된다. 한편 이강은 취재 범위를 넓혀 직접 미행까지 나서며 사건 해결의 실마리를 찾아나간다.</div>
+            <div class="ep-summary"># 다음 회 예고
+
+세윤의 아버지를 둘러싼 의혹이 커지면서 문오의 궁금증도 깊어진다. 한편 이강은 취재를 심화시키며 미행까지 감행한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -718,7 +846,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-의심의 그림자가 짙어지는 가운데 세윤의 누나가 등장하면서 사건의 실마리가 풀린다. 이강의 글쓰기를 둘러싼 갈등 속에서 도착한 한 통의 편지가 예상치 못한 반전을 일으킨다.</div>
+이강의 의심이 깊어지는 가운데 세윤의 누나가 등장하면서 사건의 실마리가 풀린다. 한편 이강의 글쓰기를 둘러싼 갈등이 심화되고, 밤하늘 아래 도착한 수수께끼의 편지가 새로운 전개의 계기가 된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -726,9 +854,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 다음 회 예고
+            <div class="ep-summary"># 예고
 
-이강의 미완성 편지로 인해 극적 긴장이 고조된다. 한편 세윤의 모친이 가족의 위기 상황을 타개하기 위해 결단을 내리면서 드라마는 새로운 전환점을 맞이한다.</div>
+이강의 미완성 글이 남긴 궁금증 속에서 문오는 안타까운 기다림을 이어간다. 한편 절망의 순간에 선 세윤의 엄마는 가족의 운명을 바꿀 결단을 감행한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -736,9 +864,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 예고
 
-문오는 이강의 작품에서 영감을 얻기 위해 집착적으로 그를 관찰하며, 이강은 창작을 위해 윤리적 경계를 넘나든다. 예술과 현실의 경계가 무너지면서 둘은 걷잡을 수 없는 결국으로 향하게 된다.</div>
+글쓰기의 재능을 깨우기 위해 이강의 작품에 집착하는 문오와, 그를 위해 점점 선을 넘어가는 이강. 이야기의 완성을 위한 둘의 집착이 되돌릴 수 없는 결말로 치닫는다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -753,8 +881,8 @@
         <span class="badge b">방송사 · tvN</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">코미디</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -774,8 +902,8 @@
         <span class="badge b">방송사 · 쿠팡플레이</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">범죄</span><span class="tag">코미디</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
@@ -795,8 +923,8 @@
         <span class="badge b">방송사 · KBS2</span>
       </div>
       <div class="card-row"><span class="k">편성</span><span></span></div>
-      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-13</span></div>
-      <div class="tags"></div>
+      <div class="card-row"><span class="k">갱신</span><span class="mono">2026-08-14</span></div>
+      <div class="tags"><span class="tag">가족</span><span class="tag">드라마</span></div>
 
       <button class="ep-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
         <span>회차별 줄거리 </span>
