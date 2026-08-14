@@ -27,7 +27,7 @@
 
   .trend-section{margin-bottom:32px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;}
   .trend-title{font-size:16px;font-weight:700;margin-bottom:16px;}
-  .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .trend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
   @media(max-width:900px){.trend-grid{grid-template-columns:1fr;}}
   .trend-card-title{font-size:12.5px;color:var(--text-faint);margin-bottom:10px;}
   .ratio-bar{display:flex;width:100%;height:10px;border-radius:6px;overflow:hidden;background:var(--surface-2);margin-bottom:10px;}
@@ -44,6 +44,11 @@
   .stat-bar-fill{height:100%;background:var(--gold);border-radius:5px;}
   .stat-bar-fill.genre{background:var(--ott);}
   .stat-count{font-size:11px;color:var(--text-faint);min-width:18px;text-align:right;}
+  .rank-row{display:flex;align-items:center;gap:8px;}
+  .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:4px;background:var(--gold-dim);color:var(--gold);font-size:11px;font-weight:700;flex-shrink:0;}
+  .rank-title{font-size:12.5px;color:var(--text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rank-score{font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;}
+  .rank-votes{font-size:10.5px;color:var(--text-faint);font-weight:400;}
 
   .filters{display:flex;gap:8px;margin-bottom:20px;}
   .pill{font-size:12px;padding:7px 14px;border-radius:20px;border:1px solid var(--line);background:var(--surface);color:var(--text-dim);cursor:pointer;}
@@ -237,7 +242,7 @@
   </span></div></div>
 <div class="wrap">
   <h1>드라마 레이더</h1>
-  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-14 01:12</div>
+  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-14 01:38</div>
   
   <div class="trend-section">
     <h2 class="trend-title">트렌드 분석</h2>
@@ -341,6 +346,35 @@
       <span class="stat-count">1</span>
     </div></div>
       </div>
+      <div class="trend-card">
+        <div class="trend-card-title">평점 TOP 5</div>
+        <div class="stat-list">
+    <div class="rank-row">
+      <span class="rank-badge">1</span>
+      <span class="rank-title">내일도 출근!</span>
+      <span class="rank-score">⭐ 8.9 <span class="rank-votes">(56명)</span></span>
+    </div>
+    <div class="rank-row">
+      <span class="rank-badge">2</span>
+      <span class="rank-title">아파트</span>
+      <span class="rank-score">⭐ 8.7 <span class="rank-votes">(17명)</span></span>
+    </div>
+    <div class="rank-row">
+      <span class="rank-badge">3</span>
+      <span class="rank-title">이런 엿같은 사랑</span>
+      <span class="rank-score">⭐ 8.3 <span class="rank-votes">(33명)</span></span>
+    </div>
+    <div class="rank-row">
+      <span class="rank-badge">4</span>
+      <span class="rank-title">김부장</span>
+      <span class="rank-score">⭐ 8.2 <span class="rank-votes">(109명)</span></span>
+    </div>
+    <div class="rank-row">
+      <span class="rank-badge">5</span>
+      <span class="rank-title">오싹한 연애</span>
+      <span class="rank-score">⭐ 8.2 <span class="rank-votes">(28명)</span></span>
+    </div></div>
+      </div>
     </div>
   </div>
   <div class="filters">
@@ -375,7 +409,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-취재 중 사고를 당해 기억을 잃은 채 깨어난 고은새 앞에 낯선 남자가 자신이 남친이라고 나타난다. 과연 그를 믿어야 할까, 의심의 눈길이 커진다.</div>
+사건 취재 중 사고를 당해 기억을 잃은 고은새가 병실에서 깨어난다. 그 앞에 의외의 인물이 나타나 자신이 그녀의 남자친구라고 주장하며 반전을 예고한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -383,9 +417,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 방송 예고
 
-은새가 발을 딛게 된 마을의 정체에 의구심을 갖기 시작한다. 주민들은 물론 태하까지 수상한 낌새를 풍기는 가운데, 은새는 그의 진짜 정체를 파악하기 위해 은근슬쩍 접근을 시도한다.</div>
+낯선 마을에 도착한 은새가 주민들의 이상한 행동과 의심스러운 태하의 정체에 의문을 품는다. 은새는 태하의 진실을 파헤치기 위해 조심스러운 접근을 시작한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -395,7 +429,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-태하와 은새의 소박한 추억 찾기 여행이 시작된다. 하지만 은새의 과거가 조직 보스 백상길에게 알려지면서 위험한 전개가 예고된다.</div>
+태하는 은새와 함께 그녀의 잃어버린 기억을 되찾기 위해 동네 곳곳을 돌아다니며 특별한 시간을 보낸다. 그러나 은새의 정체가 점차 드러나면서 조직 보스 백상길의 주목을 받게 되고, 그들의 평온한 나날은 위기에 직면하게 된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -403,9 +437,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
-
-은새는 진실을 향해 서울로 떠나지만, 그곳에서 마주한 것은 자신의 뼈아픈 과거와 태하를 둘러싼 비극적 사연뿐이다. 흔들리는 기억 속에서 은새는 또 다른 상처를 마주하게 된다.</div>
+            <div class="ep-summary">은새가 서울에서 마주하게 될 진실은 예상과 달랐다. 자신의 과거와 태하를 둘러싼 아픈 사연이 하나씩 드러나면서 은새의 운명이 뒤흔들린다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -413,9 +445,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 회차 예고
+            <div class="ep-summary"># 드라마 예고
 
-은새와 태하의 로맨스가 무르익어가는 가운데, 태하의 과거가 자꾸만 둘 사이에 불청객으로 나타난다. 결국 은새는 자신의 남자를 지키겠다는 각오로 거침없는 팩트폭력까지 서슴지 않는다.</div>
+은새와 태하의 로맨스가 깊어질수록 태하의 과거 인연들이 불청객처럼 나타나 둘의 관계에 금을 그린다. 은새는 자신의 남자를 지키겠다는 결연한 마음으로 직설적인 조언을 마다하지 않는다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -423,9 +455,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-작은 오해가 눈덩이처럼 불어나 마을 전체를 뒤흔드는 루머가 되어버린다. 엿마을의 세 명이 상황을 수습하려 나서지만 오히려 더욱 복잡해지는 가운데, 은새는 태하에게 자신에 대한 진심을 묻게 된다.</div>
+사소한 오해가 눈덩이처럼 커져 마을 전체로 퍼지는 루머가 발생한다. 엿마을의 인기녀 삼인방이 수습에 나서지만 상황은 더욱 악화되고, 은새는 결국 태하에게 자신을 향한 진심을 묻게 된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -433,9 +465,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고문 (스포일러 없음)
+            <div class="ep-summary"># 드라마 예고
 
-은새의 갑작스러운 실종으로 엿마을 주민들이 수소문에 나선다. 한편 은새의 주치의 안기준이 한밤중 태하를 찾아와 의문의 질문을 던지면서 긴장이 고조된다.</div>
+은새의 갑작스러운 실종으로 엿마을 주민들이 총출동해 수색에 나선다. 한편 은새의 주치의 안기준이 한밤중 태하를 찾아와 은새의 과거를 둘러싼 의문을 제기하며 긴장감을 높인다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -443,9 +475,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 다음 회 예고
+            <div class="ep-summary"># 드라마 예고
 
-기억을 회복한 은새가 상길을 향해 본격적인 행동에 나선다. 하지만 그 과정에서 태하와 엿마을 주민들까지 예상치 못한 위기에 직면하게 된다.</div>
+기억을 회복한 은새가 상길을 향해 본격적인 추적에 나선다. 하지만 은새의 복수 과정에서 태하와 엿마을 주민들까지 예기치 않은 위협에 노출되면서 상황은 예상과 다르게 전개된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -475,9 +507,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 학교 폭력에 맞선 교육청 감독관의 외로운 싸움
 
-권력을 등에 업은 폭력 학생들로 인해 무너진 학교에 교권보호국 감독관이 파견된다. 진정한 교육의 의미를 되찾기 위한 그의 분투가 시작된다.</div>
+권력에 기대어 학교를 좌지우지하는 가해 학생들. 그 악의적 관행을 바꾸기 위해 교권보호국 감독관 나화진이 단독으로 투입돼 진정한 교육의 의미를 되찾기 위한 사투를 펼친다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -485,9 +517,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-질서가 무너진 학교에 새로운 학생이 들어선다. 특전사 출신의 교사 화진은 조폭의 횡포로부터 학교를 지키고, 오직 학업만을 원하는 학생을 보호하기 위해 나선다.</div>
+순박한 봉근이 폭력조직의 손에 장악된 학교에 입학하게 된다. 특전사 출신의 화진은 뛰어난 전투력으로 학교를 수호하며 오직 학업만을 원하는 한 학생을 보호한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -495,7 +527,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">예측 불가능한 교권보호국 감독관 임한림이 학생 인플루언서의 거짓 폭로로 흔들리는 교단을 지키기 위해 나선다. 교사들의 명예 회복을 위한 그의 활약이 펼쳐진다.</div>
+            <div class="ep-summary"># 예고
+
+교권 침해 사건 조사에 투입된 감독관 임한림이 여고생 인플루언서의 허위 주장으로 촉발된 논란 속에서 교사들을 보호하기 위해 나선다. 예측 불가능한 그의 움직임이 학교를 뒤흔들 진실 규명의 실마리가 될 수 있을지 주목된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -503,9 +537,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 회차 예고
+            <div class="ep-summary"># 다음 회차 예고
 
-최강석 장관이 정치적 압박에 맞서며 입장을 지킨다. 한편 화진 팀은 존경받던 교사의 폭행 사건 전말을 규명하기 위해 명문고를 찾아간다.</div>
+교권보호국을 둘러싼 정치적 갈등이 심화되는 가운데, 화진 팀은 명문고에서 발생한 교사 폭행 사건의 진실을 규명하기 위해 현장 수사에 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -513,9 +547,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
-
-근대가 도박 중독에 빠진 아들의 행방을 추적하는 아버지를 돕기 위해 위험한 잠입 작전을 시작한다. 동시에 황기태는 교권보호국을 무너뜨릴 결정적 증거를 찾기 위해 소년원의 한 수감자와 만난다.</div>
+            <div class="ep-summary">도박 중독에 빠진 아들의 행방을 추적하기 위해 근대가 위험한 잠입 작전을 감행한다. 동시에 황기태는 교권보호국을 타격할 절호의 기회를 노리며 소년원 수감자와의 접촉을 시도한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -523,7 +555,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">수업 중 갑자기 쓰러진 의대 입시생의 사건으로 수사에 나선 화진이 과도한 교육 욕심에 빠진 학부모의 불법 약물 투여를 추적하게 된다. 이 과정에서 개인의 욕심을 넘어선 조직적인 흑막의 존재가 드러나면서 사건의 진실에 접근한다.</div>
+            <div class="ep-summary">의대 입시를 준비하던 학생의 급성 쇠약 사건이 발생한다. 화진은 모자 간의 비극 뒤에 있는 불법 약물 유통 조직의 거대한 음모를 추적하게 된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -531,9 +563,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 예고
 
-한림이 피해 학생들을 노리는 사기 집단에 잠입해 그 실체를 파헤친다. 이와 함께 출옥한 조규철이 학교에 복귀하면서 교권국의 운명이 흔들리게 된다.</div>
+위장 잠입으로 학교 내 착취 조직을 추적하던 한림의 작전이 가속화된다. 한편 가석방으로 복학한 조규철의 등장이 교권국에 새로운 위기를 몰고 온다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -739,9 +771,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 방송 예고
 
-동궁에서 벌어지는 의문의 죽음 사건들이 연못 귀신의 저주와 관련 있다는 의심이 제기된다. 왕은 초자연적 능력을 지닌 구천과 생강을 궁으로 소환해 저주를 풀기에 나선다.</div>
+동궁에서 의문의 죽음들이 연이어 발생하자, 왕이 초자연적 현상의 원인을 규명하기 위해 귀신을 볼 수 있는 구천과 영혼의 목소리를 들을 수 있는 궁녀 생강을 궁으로 소환한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -751,7 +783,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-연못 귀신 퇴치 중 죽음의 위기를 겪은 구천이 생강과 손을 맞잡고 궁의 남은 미스터리를 풀어나간다. 그 과정에서 소금광 귀신의 숨겨진 진실이 드러나기 시작한다.</div>
+연못의 악령으로부터 극적으로 목숨을 건진 구천은 궁의 남은 사건을 해결하기 위해 생강과 손을 맞잡는다. 이들이 함께 파고드는 소금광 귀신의 정체에 얽힌 놀라운 진실이 드러난다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -761,7 +793,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 예고
 
-왕의 협박에 몰린 구천은 영안군의 생명을 구하기 위해 위험한 결단을 내린다. 귀의 세계로 향한 구천 앞에 신비로운 존재가 나타나 그의 계획을 막아선다.</div>
+왕의 협박으로 위기에 처한 구천은 영안군을 구하기 위해 험난한 여정을 떠난다. 귀의 세계로 향한 구천을 기다리는 것은 그곳을 지키는 신비로운 존재와의 만남이다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -771,7 +803,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 예고
 
-구천과 생강이 연못의 악령을 봉인하기 위해 최후의 결전을 펼친다. 궁을 빠져나간 구천은 연이은 세자의 죽음 뒤에 숨은 진실을 추적하며 생강을 다시 찾아나선다.</div>
+구천과 생강이 연못의 악령을 완전히 봉인하기 위해 최후의 결전을 펼친다. 궁을 탈출한 구천이 연이은 세자 죽음의 진실을 추적하며 생강을 향해 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -781,7 +813,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-왕의 추격에서 생강의 도움으로 위기를 벗어난 구천은 왕의 갑작스러운 병환 속에서 악귀와 대면하게 된다. 하지만 정체 모를 누군가가 몸주신을 소환해 구천의 운명을 뒤흔든다.</div>
+왕의 추격을 받던 구천이 생강의 도움으로 위기를 벗어난다. 왕이 병환으로 쓰러지면서 구천은 악귀와의 대면을 피할 수 없게 되는데, 정체 모를 인물이 몸주신을 소환해 그의 전투를 방해한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -791,7 +823,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 예고
 
-생강이 귀신의 위협에 직면한 가운데 구천의 사투가 계속된다. 은폐된 진실이 수면 위로 떠오르지만, 예기치 않은 위기로 인해 두 사람의 계획이 흔들린다.</div>
+생사를 건 전투 속에서 생강이 초자연적 위협에 직면한다. 구천의 시력 위기로 인해 진실 규명의 발걸음이 더뎌지면서 긴장은 고조된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -799,7 +831,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">궁궐을 둘러싼 의문의 비극들이 왕과 대비의 대치로 심화되는 가운데, 초자연적 위협이 수면 위로 떠오른다. 구천과 생강은 최종 결전을 앞두고 운명과 맞서기로 결심한다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+궁을 둘러싼 비극의 원인을 놓고 왕과 대비의 대립이 심화되는 와중, 원념에 사로잡힌 영혼들이 속속 궁궐로 몰려든다. 구천과 생강은 이에 맞서 최후의 결전을 준비하며 긴장이 고조된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -807,9 +841,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-생강과 구천이 원귀의 위협에 맞서 운명을 건다. 궁을 집어삼키려는 강대한 힘 앞에서 두 사람이 펼칠 마지막 대항전의 결말은?</div>
+생강과 구천이 원귀의 위협 앞에서 서로를 지키기 위해 목숨을 걸고 나선다. 궁 전체가 혼란에 빠진 가운데, 둘이 위기를 극복할 수 있을지 주목된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -839,9 +873,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 회차 예고
+            <div class="ep-summary"># 드라마 예고
 
-문학의 재능을 눈여겨본 교수 허문오가 이강에게 특별한 기회를 제시한다. 그러나 이강의 예상 밖의 제안이 두 사람 사이의 긴장을 만들어낸다.</div>
+글재능을 보인 학생 이강에게 특별한 지도를 제의하는 교수 허문오. 그러나 예상 밖의 제안이 오가며 두 사람 사이에 묘한 긴장이 흐른다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -851,7 +885,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 예고
 
-이강이 같은 반 친구를 주인공 삼아 글을 쓰기 시작하면서 문오는 그의 진의에 의문을 품는다. 얼마 지나지 않아 예상치 못한 사건이 터지면서 숨겨진 진실이 수면 위로 떠오른다.</div>
+이강이 같은 반 친구를 소재로 글을 쓰기 시작하면서 문오가 의도에 의문을 품는다. 곧이어 한 사건으로 충격적인 진실이 드러난다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -859,7 +893,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">세윤의 아버지를 둘러싼 의문이 커지면서 문오의 관심도 함께 고조된다. 한편 이강은 본격적인 추적 수사에 나서며 사건의 진실에 한 발 더 다가간다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+세윤의 아버지를 둘러싼 의문이 커지면서 문오는 진실 규명에 더욱 몰입한다. 한편 이강은 취재의 손을 놓지 않고 직접 미행까지 감행하며 사건의 실마리를 찾아나간다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -869,7 +905,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-미스터리한 사건들이 겹치면서 이강의 의심이 커지고, 뜻밖의 인물이 등장해 상황을 뒤흔든다. 한편 문오는 이강의 행동을 두고 고민하던 중, 그날 밤 도착한 편지 한 통이 모든 것을 바꿀 실마리가 되는데...</div>
+이강의 의혹이 깊어지면서 세윤의 누나가 예상 외의 인물로 등장한다. 문오는 이강의 글쓰기를 계속 허용해야 할지 고민하던 중, 그날 밤 이강에게 도착한 신비로운 편지가 사건의 흐름을 바꾼다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -877,9 +913,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 다음 회 예고
+            <div class="ep-summary"># 방송 예고
 
-이강의 미완성 글로 인해 문오는 초조한 기다림에 빠진다. 한편, 절망 속에서 가족을 구하기 위한 세윤의 엄마의 결단이 모든 것을 바꿀 예정이다.</div>
+이강의 미완성 글에 갇힌 문오는 답답한 기다림 속에서 진실을 향해 나아간다. 한편, 절망의 늪에서 벗어나기 위해 세윤의 엄마가 과감한 선택을 감행하는데...</div>
           </div>
         </div>
         <div class="ep-item">
@@ -889,7 +925,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-창작의 경계를 넘나드는 두 사람의 집념이 걷잡을 수 없는 결국으로 치닫는다. 글쓰기라는 명분 아래 벌어지는 관찰과 집착이 되돌릴 수 없는 전환점을 맞이하게 되는 가운데, 이야기를 완성하기 위한 각자의 원칙이 비극의 소용돌이로 빠져든다.</div>
+문오는 이강의 글에서 자신의 재능을 찾기 위해 집착을 심화시키고, 이강은 창작을 위해 윤리적 경계를 허물며 관찰을 계속한다. '특별함'을 향한 두 사람의 추구가 돌이킬 수 없는 결과로 수렴하는 가운데, 예술의 대가는 무엇인지 묻는 극적 전환이 펼쳐진다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
