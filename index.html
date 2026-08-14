@@ -7,83 +7,106 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
 <style>
   :root{
-    --bg:#F4F6FB; --surface:#FFFFFF; --surface-2:#EDF1F8; --line:rgba(15,23,42,0.08);
-    --text:#1B2540; --text-dim:#5B6B85; --text-faint:#8D98AC;
-    --broadcast:#2C5FAD; --broadcast-dim:rgba(44,95,173,0.10);
-    --ott:#0E8FA8; --ott-dim:rgba(14,143,168,0.10); --gold:#B8860B; --gold-dim:rgba(184,134,11,0.10);
+    /* Apple 톤 — 무채색 + 파란색 액센트 하나 */
+    --bg:#f5f5f7;
+    --surface:#ffffff;
+    --surface-2:#fbfbfd;
+    --line:rgba(0,0,0,0.08);
+    --line-soft:rgba(0,0,0,0.05);
+    --text:#1d1d1f;
+    --text-dim:#6e6e73;
+    --text-faint:#86868b;
+    --accent:#0071e3;
+    --accent-dim:rgba(0,113,227,0.08);
+    --accent-press:#0058b3;
+    --star:#ff9f0a;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--bg);color:var(--text);font-family:'Pretendard Variable',-apple-system,sans-serif;line-height:1.5;}
-  .mono{font-family:monospace;}
-  .ticker-wrap{background:#1B2540;border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:10px 0;}
-  .ticker-track{display:inline-flex;align-items:center;animation:scroll 38s linear infinite;}
-  @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-  .ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 28px;font-size:13px;color:#C7D2E8;border-right:1px solid rgba(255,255,255,0.12);}
-  .live-dot{width:7px;height:7px;border-radius:50%;background:var(--broadcast);flex-shrink:0;}
-  .ticker-tag{font-size:10px;padding:2px 6px;border-radius:3px;background:var(--broadcast-dim);color:var(--broadcast);}
-  .wrap{max-width:1080px;margin:0 auto;padding:40px 24px;}
-  h1{font-size:32px;font-weight:800;margin-bottom:8px;}
-  .meta{font-size:13px;color:var(--text-faint);margin-bottom:28px;}
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard Variable",sans-serif;
+    line-height:1.5;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:0;}
 
-  .trend-section{margin-bottom:32px;padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;}
-  .trend-title{font-size:16px;font-weight:700;margin-bottom:16px;}
-  .trend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  /* 상단 라이브 티커 — 애플 다크 캔버스 */
+  .ticker-wrap{background:#000000;overflow:hidden;white-space:nowrap;padding:11px 0;}
+  .ticker-track{display:inline-flex;align-items:center;animation:scroll 40s linear infinite;}
+  @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  .ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 28px;font-size:13px;color:rgba(255,255,255,0.92);border-right:1px solid rgba(255,255,255,0.14);}
+  .live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+  .ticker-tag{font-size:10px;padding:2px 7px;border-radius:980px;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.85);letter-spacing:0.02em;}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 24px 64px;}
+  h1{font-size:34px;font-weight:600;letter-spacing:-0.015em;margin-bottom:6px;}
+  .meta{font-size:13px;color:var(--text-faint);margin-bottom:36px;}
+
+  /* 트렌드 섹션 */
+  .trend-section{margin-bottom:36px;padding:28px;background:var(--surface);border:1px solid var(--line-soft);border-radius:18px;}
+  .trend-title{font-size:19px;font-weight:600;letter-spacing:-0.01em;margin-bottom:20px;}
+  .trend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
   @media(max-width:900px){.trend-grid{grid-template-columns:1fr;}}
-  .trend-card-title{font-size:12.5px;color:var(--text-faint);margin-bottom:10px;}
-  .ratio-bar{display:flex;width:100%;height:10px;border-radius:6px;overflow:hidden;background:var(--surface-2);margin-bottom:10px;}
-  .ratio-fill.b{background:var(--broadcast);}
-  .ratio-fill.o{background:var(--ott);}
-  .ratio-legend{display:flex;gap:14px;font-size:11.5px;color:var(--text-dim);flex-wrap:wrap;}
-  .ratio-legend .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle;}
-  .ratio-legend .dot.b{background:var(--broadcast);}
-  .ratio-legend .dot.o{background:var(--ott);}
-  .stat-list{display:flex;flex-direction:column;gap:8px;}
-  .stat-row{display:flex;align-items:center;gap:8px;}
-  .stat-label{font-size:12px;color:var(--text-dim);min-width:56px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .stat-bar-track{flex:1;height:8px;border-radius:5px;background:var(--surface-2);overflow:hidden;}
-  .stat-bar-fill{height:100%;background:var(--gold);border-radius:5px;}
-  .stat-bar-fill.genre{background:var(--ott);}
-  .stat-count{font-size:11px;color:var(--text-faint);min-width:18px;text-align:right;}
-  .rank-row{display:flex;align-items:center;gap:8px;}
-  .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:4px;background:var(--gold-dim);color:var(--gold);font-size:11px;font-weight:700;flex-shrink:0;}
+  .trend-card{background:var(--surface-2);border-radius:14px;padding:20px;}
+  .trend-card-title{font-size:12px;color:var(--text-faint);font-weight:600;letter-spacing:0.01em;margin-bottom:14px;}
+  .ratio-bar{display:flex;width:100%;height:8px;border-radius:980px;overflow:hidden;background:var(--line);margin-bottom:12px;}
+  .ratio-fill.b{background:#1d1d1f;}
+  .ratio-fill.o{background:var(--accent);}
+  .ratio-legend{display:flex;gap:16px;font-size:12px;color:var(--text-dim);flex-wrap:wrap;}
+  .ratio-legend .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+  .ratio-legend .dot.b{background:#1d1d1f;}
+  .ratio-legend .dot.o{background:var(--accent);}
+  .stat-list{display:flex;flex-direction:column;gap:10px;}
+  .stat-row{display:flex;align-items:center;gap:10px;}
+  .stat-label{font-size:12.5px;color:var(--text-dim);min-width:60px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .stat-bar-track{flex:1;height:6px;border-radius:980px;background:var(--line);overflow:hidden;}
+  .stat-bar-fill{height:100%;background:#1d1d1f;border-radius:980px;}
+  .stat-bar-fill.genre{background:var(--accent);}
+  .stat-count{font-size:11.5px;color:var(--text-faint);min-width:18px;text-align:right;}
+  .rank-row{display:flex;align-items:center;gap:10px;}
+  .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:6px;background:var(--accent-dim);color:var(--accent);font-size:11px;font-weight:600;flex-shrink:0;}
   .rank-title{font-size:12.5px;color:var(--text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .rank-score{font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;}
   .rank-votes{font-size:10.5px;color:var(--text-faint);font-weight:400;}
 
-  .filters{display:flex;gap:8px;margin-bottom:20px;}
-  .pill{font-size:12px;padding:7px 14px;border-radius:20px;border:1px solid var(--line);background:var(--surface);color:var(--text-dim);cursor:pointer;}
-  .pill.active{background:var(--text);color:var(--bg);border-color:var(--text);}
+  /* 필터 — 애플 세그먼트 컨트롤 */
+  .filters{display:inline-flex;gap:2px;margin-bottom:28px;background:rgba(0,0,0,0.06);border-radius:10px;padding:2px;}
+  .pill{font-size:13px;font-weight:500;padding:7px 16px;border-radius:8px;border:none;background:transparent;color:var(--text-dim);cursor:pointer;transition:background .15s ease,color .15s ease;}
+  .pill.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,0.08);}
+
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
   @media(max-width:720px){.grid{grid-template-columns:1fr;}}
-  .card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;}
-  .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+  .card{display:block;background:var(--surface);border:1px solid var(--line-soft);border-radius:18px;padding:26px;position:relative;}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
   .card-title-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
-  .card-title{font-size:18px;font-weight:700;}
-  .card-link{font-size:12px;color:var(--gold);text-decoration:none;border-bottom:1px dashed var(--gold);white-space:nowrap;}
-  .badge{font-size:10.5px;padding:4px 8px;border-radius:4px;white-space:nowrap;margin-left:10px;}
-  .badge.b{background:var(--broadcast-dim);color:var(--broadcast);}
-  .badge.o{background:var(--ott-dim);color:var(--ott);}
-  .card-row{display:flex;gap:8px;font-size:13px;color:var(--text-dim);margin-bottom:6px;}
+  .card-title{font-size:19px;font-weight:600;letter-spacing:-0.01em;}
+  .card-link{font-size:12px;color:var(--accent);text-decoration:none;white-space:nowrap;}
+  .card-link:hover{text-decoration:underline;}
+  .badge{font-size:11px;font-weight:500;padding:4px 10px;border-radius:980px;white-space:nowrap;margin-left:10px;}
+  .badge.b{background:rgba(0,0,0,0.06);color:var(--text-dim);}
+  .badge.o{background:var(--accent-dim);color:var(--accent);}
+  .card-row{display:flex;gap:8px;font-size:13px;color:var(--text-dim);margin-bottom:7px;}
   .card-row .k{color:var(--text-faint);min-width:52px;}
   .rating{font-weight:600;color:var(--text);}
   .vote-count{font-size:11px;color:var(--text-faint);font-weight:400;}
-  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
-  .tag{font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--surface-2);color:var(--text-dim);border:1px solid var(--line);}
-  .ep-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);background:none;border-left:none;border-right:none;border-bottom:none;color:var(--text-dim);font-size:13px;font-family:inherit;cursor:pointer;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;}
+  .tag{font-size:11.5px;padding:4px 10px;border-radius:980px;background:rgba(0,0,0,0.05);color:var(--text-dim);}
+  .ep-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft);background:none;border-left:none;border-right:none;border-bottom:none;border-top-style:solid;color:var(--text-dim);font-size:13px;font-family:inherit;cursor:pointer;}
   .ep-toggle .chev{transition:transform .2s ease;font-size:11px;color:var(--text-faint);}
   .ep-toggle.open .chev{transform:rotate(180deg);}
   .ep-panel{max-height:0;overflow:hidden;transition:max-height .25s ease;}
   .ep-panel.open{max-height:900px;overflow-y:auto;}
-  .ep-list{padding-top:12px;display:flex;flex-direction:column;gap:12px;}
+  .ep-list{padding-top:14px;display:flex;flex-direction:column;gap:14px;}
   .ep-item{display:flex;gap:12px;}
-  .ep-num{font-size:11px;color:var(--gold);background:var(--gold-dim);border-radius:5px;padding:3px 6px;height:fit-content;flex-shrink:0;white-space:nowrap;}
+  .ep-num{font-size:11px;color:var(--accent);background:var(--accent-dim);border-radius:6px;padding:3px 7px;height:fit-content;flex-shrink:0;white-space:nowrap;font-weight:600;}
   .ep-body .ep-sub{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;}
   .ep-body .ep-date{font-size:11px;color:var(--text-faint);margin-bottom:4px;}
-  .ep-body .ep-summary{font-size:12.5px;color:var(--text-dim);line-height:1.55;}
+  .ep-body .ep-summary{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
   .ep-empty{font-size:12.5px;color:var(--text-faint);padding:12px 0;}
   .overview-box{padding-top:4px;}
-  .overview-label{font-size:11px;color:var(--text-faint);margin-bottom:6px;}
-  .overview-text{font-size:12.5px;color:var(--text-dim);line-height:1.6;}
+  .overview-label{font-size:11px;color:var(--text-faint);margin-bottom:6px;font-weight:600;}
+  .overview-text{font-size:12.5px;color:var(--text-dim);line-height:1.65;}
   .spoiler-note{font-size:11px;color:var(--text-faint);margin-top:10px;}
   .hidden{display:none !important;}
 </style>
@@ -272,7 +295,7 @@
   </span></div></div>
 <div class="wrap">
   <h1>드라마 레이더</h1>
-  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-14 04:01</div>
+  <div class="meta">자동 업데이트 · 마지막 갱신 2026-08-14 04:11</div>
   
   <div class="trend-section">
     <h2 class="trend-title">트렌드 분석</h2>
@@ -437,9 +460,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고 문안
-
-사건 추적 중 사고를 당해 기억을 잃은 고은새가 병실에서 깨어난다. 그 순간 낯선 남자가 자신의 남자친구라며 나타나는데, 과연 그가 누구인지 의문이 커진다.</div>
+            <div class="ep-summary">사건 추적 중 사고로 기억을 잃은 채 깨어난 고은새 앞에 낯선 남자가 자신의 남자친구라며 나타난다. 과연 이 사람의 정체는 무엇일까?</div>
           </div>
         </div>
         <div class="ep-item">
@@ -449,7 +470,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-은새가 발을 디딘 마을은 주민들부터 모든 것이 의심스럽기만 하다. 태하의 정체를 의심하게 된 은새는 그를 조심스럽게 탐색하기 시작한다.</div>
+은새가 도착한 마을의 정체를 의심하기 시작한다. 주민들부터 마을의 모든 것이 수상한 가운데, 특히 태하의 비밀스러운 태도가 은새의 호기심을 자극한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -459,7 +480,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-태하와 은새가 잃어버린 기억을 되찾기 위해 떠난 소박한 시간이 위기를 맞이한다. 은새의 과거가 속속 드러나면서 조직의 최상층부까지 알려지는 위험한 상황이 전개된다.</div>
+기억 회복을 위해 함께 동네를 누비는 태하와 은새의 소박한 시간이 이어진다. 한편 은새의 비밀이 조직 보스 백상길에게 알려지면서 상황이 복잡해질 조짐을 보인다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -467,9 +488,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
-
-은새가 서울에서 마주한 것은 자신의 숨겨진 과거와 태하를 둘러싼 아픈 진실이다. 점점 드러나는 비극적 사건들 속에서 두 사람의 운명은 어떻게 엇갈릴 것인가.</div>
+            <div class="ep-summary">진실을 찾아 서울로 떠난 은새가 마주하게 되는 것은 예상치 못한 과거의 상흔들이다. 태하와 얽힌 아픈 사연까지 드러나면서 은새의 여정은 더욱 복잡해진다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -479,7 +498,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 회차 예고
 
-은새와 태하의 로맨스가 무르익어가는 와중, 태하의 과거 인연들이 계속해서 두 사람 사이에 불청객으로 나타난다. 위기의 순간마다 나타나는 방해꾼들 앞에서 은새는 자신만의 방식으로 강렬한 태도를 드러낸다.</div>
+은새와 태하의 감정이 점점 깊어지는 가운데, 태하의 과거 인물들이 계속 나타나 둘의 관계에 방해가 된다. 은새는 자신의 남자를 지키겠다는 일념으로 솔직한 말을 내뱉는다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -487,7 +506,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">작은 오해에서 비롯된 루머가 마을 전체로 빠르게 확산되면서 상황이 걷잡을 수 없게 된다. 엿마을의 부유한 삼인방이 사태 수습에 나서지만 오히려 사건을 더 복잡하게 만들고, 은새는 태하에게 자신에 대한 진정한 마음이 무엇인지를 직접 묻게 된다.</div>
+            <div class="ep-summary"># 예고
+
+작은 오해에서 비롯된 루머가 마을 전체를 휩쓸면서 상황이 급속도로 악화된다. 엿마을의 세 친구들이 수습에 나서지만 오히려 더 복잡해지는 가운데, 은새는 태하의 진정한 마음이 무엇인지 직접 묻기로 결심한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -497,7 +518,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-은새의 갑작스러운 실종으로 엿마을 주민들이 수색에 나선다. 한편 그녀를 진료해온 안기준이 한밤중 태하를 찾아와 은새의 과거를 둘러싼 의문의 질문을 던진다.</div>
+은새의 갑작스러운 실종으로 엿마을 주민들이 수색에 나서는 가운데, 그녀의 주치의 안기준이 한밤중 태하를 찾아와 은새의 과거를 둘러싼 의문을 제기한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -505,9 +526,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-기억을 되찾은 은새가 상길을 향한 복수에 나선다. 그러나 이 과정에서 태하와 마을 주민들까지 예상치 못한 위험에 처하게 되면서 상황이 복잡해진다.</div>
+            <div class="ep-summary">기억을 회복한 은새가 상길 체포에 나서면서 사건은 새로운 국면을 맞는다. 그 과정에서 태하와 엿마을 주민들까지 예기치 않은 위협에 처하게 된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -537,9 +556,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 예고
 
-권력을 등에 업은 학폭 가해자들이 학교를 지배하는 가운데, 교권보호국 감독관 나화진이 단독 투입돼 진정한 교육의 의미를 되찾기 위한 분투를 시작한다.</div>
+교권침해 감독관 나화진이 학교폭력의 악순환을 끊기 위해 투입된다. 가해자 중심으로 돌아가는 학교 문화를 바꾸고 진정한 교육의 의미를 되찾는 과정이 펼쳐진다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -547,7 +566,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">어수룩한 봉근이 조폭들이 지배하는 학교에 입학하게 되고, 특전사 출신의 화진이 학교를 수호하며 순수하게 학업만 원하는 학생을 보호한다.</div>
+            <div class="ep-summary">학교를 장악한 조폭 무리 앞에 어수룩한 신입이 나타난다. 특전사 출신의 화진은 뛰어난 실력으로 학교를 수호하며 공부만 꿈꾸는 학생을 지켜낸다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -557,7 +576,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-교권 침해 사건을 둘러싼 진실 규명에 나선다. 여고생 인플루언서의 거짓 고발로 곤경에 처한 교사들을 돕기 위해 예측 불가능한 감독관 임한림이 움직인다.</div>
+교권 침해 사건을 맡은 강단 있는 감독관이 학교를 뒤흔드는 논란에 직면한다. 유명 여고생 인플루언서의 거짓 주장으로 교사들이 위기에 처하면서, 사건의 진실을 규명하기 위한 그의 본격적인 활동이 시작된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -565,9 +584,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 다음 회차 예고
 
-교육부 장관이 정치적 압박에 맞서는 가운데, 화진 팀은 명문고에서 발생한 교사 폭행 사건의 진실을 파헤치기 위해 현장 수사에 나선다.</div>
+교권보호국을 둘러싼 정치적 갈등이 격화되는 가운데, 화진 팀은 명문고에서 벌어진 교사 폭행 사건의 진실을 추적한다. 존경받던 교사가 학생에게 폭력을 당하게 된 배경에 숨겨진 사연이 있는지 주목된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -575,7 +594,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">도박 중독에 빠진 아들을 구하기 위해 근대가 위험한 위장 수사에 투입된다. 황기태는 교권보호국을 붕괴시킬 절호의 기회를 포착하고 소년원 재소자와의 접촉을 추진한다.</div>
+            <div class="ep-summary">근대는 도박 중독자인 아들을 구하기 위해 아버지와 함께 위험한 작전에 투입된다. 동시에 황기태는 교권보호국을 붕괴시킬 수 있는 새로운 기회를 발견하게 된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -583,7 +602,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">의대 입시를 준비하던 학생의 갑작스러운 쓰러짐 사건으로 수사에 나선 화진은 학부모의 불법 약물 사용 배경에 숨겨진 더 거대한 비리 조직을 적발하게 된다.</div>
+            <div class="ep-summary"># 다음 회 예고
+
+의대 입시를 준비하던 학생이 수업 중 갑자기 쓰러지는 사건이 발생한다. 화진의 수사망이 학생의 어머니에게로 좁혀지면서 교육열에 휩싸인 학부모들이 얽힌 놀라운 진실이 수면 위로 떠오른다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -591,9 +612,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 회차 예고
+            <div class="ep-summary"># 예고 안내
 
-한림이 착취 집단에 잠입해 피해자들을 구하기 위한 위험한 작전에 나선다. 한편 출소한 조규철의 복학으로 교권국이 예상치 못한 위기를 맞이하게 된다.</div>
+한림이 착취 조직에 잠입해 정체를 파헤치는 가운데, 출소한 조규철의 귀교로 교권국의 운명이 흔들린다. 거짓 우정으로 학생들을 노리는 세력의 실체와 한림의 위험한 작전이 맞닿을 때 어떤 일이 일어날지 주목된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -799,7 +820,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">동궁에서 연이은 의문의 죽음 사건이 발생하자, 왕은 귀신을 볼 수 있는 구천과 귀신의 목소리를 들을 수 있는 궁녀 생강을 궁으로 소환한다. 연못 귀신의 저주로 의심되는 이 사건의 진실을 밝히기 위한 이들의 활약이 시작되려 한다.</div>
+            <div class="ep-summary"># 예고
+
+동궁에서 벌어지는 의문의 죽음들이 연못 귀신의 저주로 의심되면서 긴장이 고조된다. 왕은 초자연적 능력을 가진 구천과 생강을 궁으로 소환해 저주를 풀기에 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -807,9 +830,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-죽음의 위기에서 벗어난 구천이 궁의 남은 과제를 해결하기 위해 생강과 손을 맞잡는다. 이들은 소금광 귀신의 숨겨진 진실에 점차 다가가게 된다.</div>
+목숨이 위태로운 위기를 겨우 벗어난 구천은 궁의 남은 문제를 함께 해결하기로 생강과 손을 맞잡는다. 이후 두 사람은 소금광 귀신의 숨겨진 진실에 다가간다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -817,7 +840,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">왕의 협박으로 절박한 상황에 처한 구천이 영안군을 구하기 위해 귀의 세계로 발을 들인다. 궁 밖 그곳에서 예상치 못한 존재와의 만남이 그를 기다리고 있다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+왕의 위협에 직면한 구천은 영안군을 구하기 위해 위험한 결단을 내린다. 귀의 세계로 발을 들이며 그곳의 수호자와 마주하게 되는데, 이것이 그를 기다리는 또 다른 시련의 시작이 될 것으로 보인다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -827,7 +852,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-구천과 생강이 연못의 저주를 완전히 봉인하기 위해 최후의 노력을 기울인다. 궁을 빠져나간 구천은 연이은 세자의 죽음에 의혹을 품고 생강을 다시 찾아나선다.</div>
+구천과 생강이 연못의 악령을 처단하기 위해 최후의 결전을 펼친다. 궁을 떠난 구천은 연이은 세자의 죽음에 의혹을 품고 생강을 다시 찾아가게 된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -835,9 +860,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-왕의 추격을 받던 구천이 생강의 助力으로 난관을 극복한다. 왕이 갑자기 병환에 빠지면서 구천은 악귀와의 결전에 나서게 되지만, 정체 모를 세력이 몸주신을 소환해 전투를 방해한다.</div>
+왕의 추격을 받던 구천이 생강의 협력으로 위기에서 벗어난다. 왕이 병에 걸려 쓰러지면서 구천은 악귀와의 대면을 피할 수 없게 되지만, 정체 모를 인물이 몸주신을 소환해 싸움을 방해한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -845,9 +870,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 제목: [회차명]
 
-위험한 전투가 벌어지는 와중에 생강은 예상치 못한 위협에 직면하게 된다. 사건의 진실이 점점 드러나지만, 뜻밖의 변수가 발생하면서 두 사람의 계획에 빨간불이 켜진다.</div>
+구천과 생강이 각각 위기에 직면하면서 사건 해결의 실마리를 찾게 된다. 하지만 예상치 못한 사건으로 인해 그들의 계획에 변수가 생기는데, 앞으로의 전개가 주목된다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -855,9 +880,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-궁을 향한 초자연적 위협이 임박한 가운데, 왕실 내 갈등이 심화된다. 구천과 생강은 운명의 최종 대결을 맞을 준비를 서두르고 있다.</div>
+            <div class="ep-summary">왕실을 둘러싼 비극의 원인을 놓고 팽팽한 긴장이 고조되는 가운데, 한과 복수심에 불타는 영혼들이 궁궐을 위협하기 시작한다. 구천과 생강은 숙명의 대결을 향해 마지막 준비에 나선다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -865,9 +888,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
+            <div class="ep-summary"># 다음 회 예고
 
-생강과 구천이 원귀의 위협 속에서 궁을 지키기 위해 목숨을 걸고 나선다. 증폭되는 혼란 속에서 두 사람이 위기를 극복할 수 있을지 주목된다.</div>
+생강과 구천이 원귀의 위협 앞에서 서로를 지키기 위해 결사의 각오를 다진다. 궁궐 전체를 집어삼키려는 원귀의 힘이 고조되는 가운데, 둘이 이를 막을 수 있을지 긴장감이 고조된다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
@@ -899,7 +922,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-문학 교수 허문오가 수업 중 학생 이강의 글쓰기 재능에 눈을 뜬다. 특별 지도를 제안한 교수 앞에서 이강이 예상 밖의 제안을 꺼낸다.</div>
+교수 허문오가 자신의 강의를 듣는 학생 이강의 글쓰기 실력에 눈여겨보며 특별 지도를 제의한다. 그러나 이강이 던지는 뜻밖의 제안이 두 사람 사이에 묘한 긴장을 빚어낸다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -907,9 +930,7 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 드라마 예고
-
-이강이 같은 반 친구 김세윤을 주제로 글쓰기에 나서면서 사건의 서막이 열린다. 문오의 의심 속에 예상치 못한 진실이 수면 위로 떠오르게 된다.</div>
+            <div class="ep-summary">이강이 같은 반 친구를 주인공 삼아 글쓰기에 나서면서 문오의 의심이 커진다. 예상치 못한 사건이 터지면서 숨겨진 진실이 수면 위로 떠오른다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -917,7 +938,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary">세윤의 아버지를 향한 의혹이 커지면서 문오는 사건의 진실에 더욱 집착하게 된다. 한편 이강은 본격적인 취재에 나서며 대상을 미행하기까지 이른다.</div>
+            <div class="ep-summary"># 드라마 예고
+
+세윤의 아버지를 둘러싼 의문이 커지면서 문오의 호기심은 점점 커진다. 한편 이강은 직접 추적까지 나서며 진실을 파헤치려는 집념을 드러낸다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -927,7 +950,7 @@
             <div class="ep-date"></div>
             <div class="ep-summary"># 드라마 예고
 
-이강의 의혹이 깊어지는 가운데 세윤의 누나가 갑자기 모습을 드러낸다. 한편 문오는 이강의 글쓰기를 계속 허용해야 할지 고민하다가, 그날 밤 정체불명의 편지가 도착하면서 상황이 복잡해진다.</div>
+목격한 사건들로 의혹을 키워가던 이강 앞에 세윤의 누나가 나타나면서 상황이 복잡해진다. 한편 문오는 이강의 집필을 계속 허락할지 고민하던 중, 밤새 도착한 수수께끼의 편지가 모든 것을 뒤흔들 준비를 한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -935,9 +958,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 회차 예고
 
-이강의 미완성 글을 둘러싼 의문이 깊어지면서 문오의 초조함이 극에 달한다. 한편, 절망 속에서 가족의 운명을 바꾸려는 세윤 어머니의 과감한 결단이 예고된다.</div>
+이강의 미완성 글로 인해 긴장감이 높아지는 가운데, 문오는 그 결말을 애타게 기다린다. 한편 세윤의 어머니는 절망의 순간에서 가족을 구하기 위한 결단을 감행한다.</div>
           </div>
         </div>
         <div class="ep-item">
@@ -945,9 +968,9 @@
           <div class="ep-body">
             <div class="ep-sub"></div>
             <div class="ep-date"></div>
-            <div class="ep-summary"># 예고
+            <div class="ep-summary"># 드라마 예고
 
-작가의 재능을 발굴하려는 문오와 더 깊은 글을 쓰기 위해 선을 넘는 이강이 위험한 집착의 관계로 빠져든다. 이야기를 위한 '특별함'을 추구하는 둘의 신념이 돌이킬 수 없는 결말로 향한다.</div>
+문오는 이강의 글에 매혹되어 창작의 영감을 갈구하고, 이강은 그 욕망을 이용해 경계를 넘는 관찰을 계속한다. 두 사람이 추구하는 '특별함'이 결국 돌이킬 수 없는 파국으로 이끌어간다.</div>
           </div>
         </div></div>
         <div class="spoiler-note">⚠ 스포일러 포함 · 방영분마다 자동 갱신됩니다</div>
